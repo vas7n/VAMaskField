@@ -29,17 +29,17 @@ public class MaskField extends TextField {
 
 
     /**
-     * позиция в маске позволит ввести только цифры
+     * РїРѕР·РёС†РёСЏ РІ РјР°СЃРєРµ РїРѕР·РІРѕР»РёС‚ РІРІРµСЃС‚Рё С‚РѕР»СЊРєРѕ С†РёС„СЂС‹
      */
     public static final char MASK_DIGIT = 'D';
 
     /**
-     * позиция в маске позволит ввести буквы и цифры
+     * РїРѕР·РёС†РёСЏ РІ РјР°СЃРєРµ РїРѕР·РІРѕР»РёС‚ РІРІРµСЃС‚Рё Р±СѓРєРІС‹ Рё С†РёС„СЂС‹
      */
     public static final char MASK_DIG_OR_CHAR = 'W';
 
     /**
-     * позиция в маске позволит ввести только буквы
+     * РїРѕР·РёС†РёСЏ РІ РјР°СЃРєРµ РїРѕР·РІРѕР»РёС‚ РІРІРµСЃС‚Рё С‚РѕР»СЊРєРѕ Р±СѓРєРІС‹
      */
     public static final char MASK_CHARACTER = 'A';
 
@@ -54,7 +54,7 @@ public class MaskField extends TextField {
     private List<Position> objectMask = new ArrayList<>();
 
     /**
-     * простой текст без применения маски
+     * РїСЂРѕСЃС‚РѕР№ С‚РµРєСЃС‚ Р±РµР· РїСЂРёРјРµРЅРµРЅРёСЏ РјР°СЃРєРё
      */
     private StringProperty plainText;
 
@@ -75,7 +75,7 @@ public class MaskField extends TextField {
 
 
     /**
-     * это сама маска видимая в поле ввода
+     * СЌС‚Рѕ СЃР°РјР° РјР°СЃРєР° РІРёРґРёРјР°СЏ РІ РїРѕР»Рµ РІРІРѕРґР°
      */
     private StringProperty mask;
 
@@ -98,7 +98,7 @@ public class MaskField extends TextField {
 
 
     /**
-     * если маска должна отображать символы которые зарезервированы для маски, то задается дополнительная подсказка где символ маски, а где просто символ
+     * РµСЃР»Рё РјР°СЃРєР° РґРѕР»Р¶РЅР° РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ СЃРёРјРІРѕР»С‹ РєРѕС‚РѕСЂС‹Рµ Р·Р°СЂРµР·РµСЂРІРёСЂРѕРІР°РЅС‹ РґР»СЏ РјР°СЃРєРё, С‚Рѕ Р·Р°РґР°РµС‚СЃСЏ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РїРѕРґСЃРєР°Р·РєР° РіРґРµ СЃРёРјРІРѕР» РјР°СЃРєРё, Р° РіРґРµ РїСЂРѕСЃС‚Рѕ СЃРёРјРІРѕР»
      */
     private StringProperty whatMask;
 
@@ -121,7 +121,7 @@ public class MaskField extends TextField {
 
 
     /**
-     * это символы замещения
+     * СЌС‚Рѕ СЃРёРјРІРѕР»С‹ Р·Р°РјРµС‰РµРЅРёСЏ
      */
     private StringProperty placeholder;
 
@@ -175,7 +175,7 @@ public class MaskField extends TextField {
 
 
     /**
-     * формирует список объектов Position по каждому символу маски
+     * С„РѕСЂРјРёСЂСѓРµС‚ СЃРїРёСЃРѕРє РѕР±СЉРµРєС‚РѕРІ Position РїРѕ РєР°Р¶РґРѕРјСѓ СЃРёРјРІРѕР»Сѓ РјР°СЃРєРё
      */
     private void rebuildObjectMask() {
         objectMask = new ArrayList<>();
@@ -186,15 +186,15 @@ public class MaskField extends TextField {
             char p = PLACEHOLDER_CHAR_DEFAULT;
 
             if (getWhatMask() != null && i < getWhatMask().length()) {
-                //конкретно указано символ маски это или нет
+                //РєРѕРЅРєСЂРµС‚РЅРѕ СѓРєР°Р·Р°РЅРѕ СЃРёРјРІРѕР» РјР°СЃРєРё СЌС‚Рѕ РёР»Рё РЅРµС‚
                 if (getWhatMask().charAt(i) != WHAT_MASK_CHAR) {
                     w = WHAT_MASK_NO_CHAR;
                 }
             }
             else
             {
-                //так как не указано что за символ - понимаем самостоятельно
-                //и если символ не находится среди символов маски - то это считается простым литералом
+                //С‚Р°Рє РєР°Рє РЅРµ СѓРєР°Р·Р°РЅРѕ С‡С‚Рѕ Р·Р° СЃРёРјРІРѕР» - РїРѕРЅРёРјР°РµРј СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ
+                //Рё РµСЃР»Рё СЃРёРјРІРѕР» РЅРµ РЅР°С…РѕРґРёС‚СЃСЏ СЃСЂРµРґРё СЃРёРјРІРѕР»РѕРІ РјР°СЃРєРё - С‚Рѕ СЌС‚Рѕ СЃС‡РёС‚Р°РµС‚СЃСЏ РїСЂРѕСЃС‚С‹Рј Р»РёС‚РµСЂР°Р»РѕРј
                 if (m != MASK_CHARACTER && m != MASK_DIG_OR_CHAR && m != MASK_DIGIT)
                     w = WHAT_MASK_NO_CHAR;
 
@@ -209,8 +209,8 @@ public class MaskField extends TextField {
 
 
     /**
-     * функция как бы накладывает просто текст plainText на заданную маску,
-     * корректирует позицию каретки
+     * С„СѓРЅРєС†РёСЏ РєР°Рє Р±С‹ РЅР°РєР»Р°РґС‹РІР°РµС‚ РїСЂРѕСЃС‚Рѕ С‚РµРєСЃС‚ plainText РЅР° Р·Р°РґР°РЅРЅСѓСЋ РјР°СЃРєСѓ,
+     * РєРѕСЂСЂРµРєС‚РёСЂСѓРµС‚ РїРѕР·РёС†РёСЋ РєР°СЂРµС‚РєРё
      */
     private void updateShowingField()
     {
@@ -227,7 +227,7 @@ public class MaskField extends TextField {
                     char c = textPlain.charAt(counterPlainCharInMask);
                     while (!p.isCorrect(c))
                     {
-                        //вырезаем то что не подошло
+                        //РІС‹СЂРµР·Р°РµРј С‚Рѕ С‡С‚Рѕ РЅРµ РїРѕРґРѕС€Р»Рѕ
                         textPlain = textPlain.substring(0, counterPlainCharInMask) + textPlain.substring(counterPlainCharInMask + 1);
 
                         if (textPlain.length() > counterPlainCharInMask)
